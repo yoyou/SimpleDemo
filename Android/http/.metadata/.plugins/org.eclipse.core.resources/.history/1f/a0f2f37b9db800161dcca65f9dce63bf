@@ -1,0 +1,72 @@
+package com.example.http_2;
+
+import java.util.List;
+
+import com.example.util.Person;
+
+import android.content.Context;
+import android.text.NoCopySpan.Concrete;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class baseadapter extends BaseAdapter {
+	private List<Person> list;
+	private Context context;
+	private LayoutInflater layoutInflater;
+
+	public baseadapter(Context context, List<Person> list) {
+		this.list = list;
+		this.context = context;
+		layoutInflater = LayoutInflater.from(context);
+	}
+
+	@Override
+	public int getCount() {
+
+		return list.size();
+	}
+
+	@Override
+	public Object getItem(int position) {
+
+		return list.get(position);
+	}
+
+	@Override
+	public long getItemId(int position) {
+
+		return 0;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		Holder holder = null;
+		if (convertView == null) {
+			convertView = layoutInflater.inflate(R.layout.item, null);
+			holder = new Holder(convertView);
+		}else {
+			
+		}
+		return convertView;
+	}
+
+	class Holder {
+		private TextView name;
+		private TextView age;
+		private TextView schoolinfo1;
+		private TextView schoolinfo2;
+		private ImageView imageView;
+
+		public Holder(View view) {
+			name = (TextView) view.findViewById(R.id.name);
+			age = (TextView) view.findViewById(R.id.age);
+			schoolinfo1 = (TextView) view.findViewById(R.id.Schhoolnfo1);
+			schoolinfo2 = (TextView) view.findViewById(R.id.Schhoolnfo2);
+			imageView = (ImageView) view.findViewById(R.id.imageview);
+		}
+	}
+}

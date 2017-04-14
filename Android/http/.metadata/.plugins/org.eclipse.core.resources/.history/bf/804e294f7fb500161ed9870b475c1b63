@@ -1,0 +1,20 @@
+package com.zmw.json;
+
+import java.util.List;
+
+public class Result {
+		private int result;
+		private List<Person> list;
+		public int getResult() {
+			return result;
+		}
+		public void setResult(int result) {
+			this.result = result;
+		}
+		public List<Person> getList() {
+			return list;
+		}
+		public void setList(List<Person> list) {
+			this.list = list;
+		}
+}

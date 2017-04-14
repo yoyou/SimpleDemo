@@ -1,0 +1,73 @@
+package com.example.http_2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.widget.Toast;
+
+public class JsonTHread extends Thread {
+	private String url;
+	private Context context;
+
+	private JsonTHread(String url, Context context) {
+		this.context = context;
+		this.url = url;
+	}
+
+	@Override
+	public void run() {
+		HttpURLConnection conn;
+		URL httpurl;
+		try {
+			httpurl = new URL(url);
+			conn = (HttpURLConnection) httpurl.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setReadTimeout(1000);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					conn.getInputStream()));
+			StringBuffer buffer = new StringBuffer();
+			String str = null;
+			while ((str = reader.readLine()) != null) {
+				buffer.append(str);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+	}
+
+	public void JsonParser(String json){
+		try {
+			JSONObject jsonObject = new JSONObject(json);
+			int result = jsonObject.getInt("result");
+			if (result == 1) {
+				JSONArray jsonArray  = new JSONArray(jsonObject.getJSONArray(""));
+				
+				
+			}else {
+				Toast.makeText(context, "ERROR !", 1).show();
+			}
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+	
+}

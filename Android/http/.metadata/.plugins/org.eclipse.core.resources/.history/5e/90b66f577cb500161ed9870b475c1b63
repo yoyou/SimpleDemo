@@ -1,0 +1,12 @@
+package com.zmw.json;
+
+import java.awt.List;
+import com.zmw.json.SchoolInfo;
+public class Person {
+
+		private String name;
+		private String url;
+		private int age;
+		private List<SchoolInfo>
+
+}

@@ -1,0 +1,22 @@
+package com.example.http_2;
+
+import android.os.Handler;
+import android.widget.TextView;
+
+public class XmlThread extends Thread {
+	private TextView textView;
+	private String url;
+	private Handler handler;
+
+	public XmlThread(TextView textView, String url, Handler handler) {
+
+		this.textView = textView;
+		this.url = url;
+		this.handler = handler;
+	}
+
+	@Override
+	public void run() {
+
+	}
+}

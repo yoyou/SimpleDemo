@@ -1,0 +1,89 @@
+package www.zmw.JsonServlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+/**
+ * Servlet implementation class JsonServlet
+ */
+@WebServlet("/JsonServlet")
+public class JsonServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public JsonServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doPost(request, response);
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		Result result = new Result();
+		result.setResult(1);
+		
+		List<Person> persondata = new ArrayList<Person>();
+		
+		Person person1 = new Person();
+		person1.setAge(12);
+		person1.setName("zhuangmingwei");
+		person1.setUrl("https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=51553588,3796425299&fm=58");
+		List<SchoolInfo> schoolInfos = new ArrayList<SchoolInfo>();
+		SchoolInfo schoolInfo1 = new SchoolInfo();
+		schoolInfo1.setShcoolName("希信");
+		SchoolInfo schoolInfo2 = new SchoolInfo();
+		schoolInfo2.setShcoolName("季延");
+		schoolInfos.add(schoolInfo1);
+		schoolInfos.add(schoolInfo2);
+		person1.setList(schoolInfos);
+		persondata.add(person1);
+		
+		
+		Person person2 = new Person();
+		person2.setAge(24);
+		person2.setName("zhuangxiansheng");
+		person2.setUrl("https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1271528039,2031925530&fm=58");
+		List<SchoolInfo> schoolinfo = new ArrayList<SchoolInfo>();
+		SchoolInfo schoolInfo3 = new SchoolInfo();
+		schoolInfo3.setShcoolName("子江");
+		SchoolInfo schoolInfo4 = new SchoolInfo();
+		schoolInfo4.setShcoolName("南理工");
+		schoolinfo.add(schoolInfo3);
+		schoolinfo.add(schoolInfo4);
+		person2.setList(schoolinfo);
+		persondata.add(person2);
+		
+		result.setList(persondata);
+		Gson gson = new Gson();
+		System.out.println(	gson.toJson(result));
+	
+		
+		out.println(gson.toJson(result));
+	}
+
+}

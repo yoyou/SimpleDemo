@@ -1,0 +1,115 @@
+package com.example.http_2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.example.util.Person;
+import com.example.util.SchoolInfo;
+import com.example.util.baseadapter;
+
+import android.content.Context;
+import android.os.Handler;
+import android.widget.Adapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class JsonTHread extends Thread {
+	private String url;
+	private Context context;
+	private ListView listView;
+	private Handler  handler;
+
+	public JsonTHread(String url, Context context, ListView listView,Handler handler) {
+		this.context = context;
+		this.url = url;
+		this.listView = listView;
+		this.handler = handler;
+	}
+
+	@Override
+	public void run() {
+		HttpURLConnection conn;
+		URL httpurl;
+		try {
+			httpurl = new URL(url);
+			conn = (HttpURLConnection) httpurl.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setReadTimeout(1000);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					conn.getInputStream()));
+			StringBuffer buffer = new StringBuffer();
+			String str = null;
+			while ((str = reader.readLine()) != null) {
+				buffer.append(str);
+			}
+			
+			final List<Person> personlist = JsonParser(buffer.toString());
+		 
+			
+			handler.post(new Runnable() {
+				
+				@Override
+				public void run() {
+					baseadapter baseadapter = new baseadapter(context, personlist);
+					listView.setAdapter(baseadapter);
+				}
+			});
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public List<Person> JsonParser(String json) {
+
+		List<Person> list = new ArrayList<Person>();
+		try {
+			JSONObject jsonObject = new JSONObject(json);
+			int result = jsonObject.getInt("result");
+			if (result == 1) {
+				JSONArray jsonArray = jsonObject.getJSONArray("persondata");
+				for (int i = 0; i < jsonArray.length(); i++) {
+					Person personJson = new Person();
+					JSONObject person = jsonArray.getJSONObject(i);
+					String name = person.getString("name");
+					personJson.setName(name);
+					String age = person.getString("age");
+					personJson.setAge(Integer.valueOf(age));
+					String url = person.getString("url");
+					personJson.setUrl(url);
+					JSONArray schoollist = person.getJSONArray("schoolinfo");
+					List<SchoolInfo> school = new ArrayList<SchoolInfo>();
+					for (int j = 0; j < schoollist.length(); j++) {
+						JSONObject schoolobject = schoollist.getJSONObject(j);
+						String schoolinfo = schoolobject
+								.getString("ShcoolName");
+						SchoolInfo info = new SchoolInfo();
+						info.setShcoolName(schoolinfo);
+						school.add(info);
+					}
+					list.add(personJson);
+				}
+			} else {
+				Toast.makeText(context, "ERROR !", 1).show();
+				return null;
+			}
+			return list;
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;http_2/src/com.example.util&apos;&#x0A;- Original project: &apos;Json_one&apos;&#x0A;- Destination element: &apos;http_2/src/com.example.util&apos;&#x0A;- Original elements:&#x0A;     com.zmw.json.SchoolInfo.java&#x0A;     com.zmw.json.Result.java&#x0A;     com.zmw.json.Person.java" description="Copy compilation units" destination="=http_2/src&lt;com.example.util" element1="/src&lt;com.zmw.json{SchoolInfo.java" element2="/src&lt;com.zmw.json{Result.java" element3="/src&lt;com.zmw.json{Person.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1480687009529" units="3" version="1.0"/>
+</session>

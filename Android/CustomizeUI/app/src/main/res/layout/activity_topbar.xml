@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:custmer="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_topbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.zmw.customizeui.TopbarActivity">
+
+    <com.zmw.topbar.Topbar
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        custmer:leftbuttonbackgroud="#123412"
+        custmer:leftbuttontext="左边"
+        custmer:leftbuttontextcolor="#ffffff"
+        custmer:rightbuttonbackgroud="#123412"
+        custmer:rightbuttontext="右边"
+        custmer:rightbuttontextcolor="#ffffff"
+        custmer:titletext="title"
+        custmer:titletextcolor="#ffffff"
+        custmer:titletextsize="10sp"
+        ></com.zmw.topbar.Topbar>
+
+
+</RelativeLayout>
