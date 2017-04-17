@@ -1,0 +1,231 @@
+
+*{
+	margin:0px auto;
+	padding: 0px;
+}
+
+body{
+	width:1345px;
+}
+
+a{
+	text-decoration:none;
+	color:#938780;
+}
+/* 首部 */
+header {
+	display:block;
+
+}
+#head{
+	width:1345px;
+	display:block;
+}
+
+#sort{
+	width:1345px;
+	background-color:#86766F;
+	
+}
+
+#sort div{
+	line-height:27px;
+	margin-left:350px;
+}
+
+#sort a{
+	text-decoration:none;
+	font-family:"楷体";
+	font-size:14px;
+	color:#FFF;
+	margin-left:10px;
+}
+
+#sort a:hover{
+	background:#BB0102;
+}
+
+/* 搜索 */
+article{
+	display:block;
+	width:1345px;
+}
+
+article section{
+	font-family:"微软雅黑";
+	background-color:#E7E2DA;
+	font-size:5px;
+	line-height:30px;
+}
+
+article section nav{
+	display:inline;
+	margin-left:353px;
+	color:#938780;
+}
+
+article section nav a{
+	text-decoration:none;
+}
+
+#search{
+	margin-left:17px;
+	width:120px;
+}
+
+#btn_search{
+	background-color:#86766F;
+	color:white;
+	
+}
+
+#home_page{
+	width:1345px;
+	height:400px;
+}
+
+#intrduce{
+	width:450px;
+	height:300px;
+	
+}
+
+#background{
+	width:1345px;
+}
+
+#section2{
+	width:1345px;
+	height:415px;
+	background-image:url("../images/A-维客淘-首页_06.jpg");
+}
+
+#section2_image{
+	margin-left:400px;
+	margin-top:-2px;
+}
+	
+#section3{
+	text-align:center;
+	background-image:url("../images/背景.jpg");
+}
+#section3_section1{
+	width:712px;
+	height:367px;
+	background-image:url("../images/视频 .jpg");
+}
+
+#video{
+	width:300px;
+	height:300px;
+	background:black;
+	display:block;
+	margin:25px;
+	float:left;
+}
+
+#poem{
+	display:block;
+	font-size:12px;
+	text-align:left;
+	padding-top:20px;
+	color:#553A2C;
+	line-height:22px;
+}
+
+#section3_section2{
+	background-image:url("../images/新品.jpg");
+	width:712px;
+	height:500px;
+	display:block;
+}
+
+#product{
+	float:left;
+	margin:10px
+}
+#section3_section3{
+	width:712px;
+	height:250px;
+	background-image:url("../images/香枕.jpg")
+}
+
+#section3_4{
+	width:712px;
+	height:770px;
+	background-image:url("../images/热门.jpg");
+}
+
+#newproduct{
+	float:right;
+	margin:10px;
+}
+
+#section3_5{
+	width:712px;
+	height:690px;
+	margin-top:-10px;
+	background-image:url("../images/典藏圣品.jpg");
+	text-align:left;
+}
+
+#product2{
+	padding:10px;
+}
+
+#section3_6{
+	width:712px;
+	height:251px;
+	background-image:url("../images/分类 .jpg");
+	color:#938780;
+	position:relative;
+}
+.sort1{
+	display:block;
+	padding-top:10px;
+	padding-left:15px;
+	width:30px;
+	height:100px;
+}
+
+#nav1{
+	float:left;
+	display:block;
+	
+}
+
+.nav_1{
+	text-align:left;
+}
+
+.nav{
+	text-align:left;
+}
+
+#server_center_nav{
+	padding-top:20px;
+	position:absolute;
+	display:inline-block;
+	width:240px;
+	margin-right:460px;
+	top:120px;
+	left:60px;
+}
+
+#all_sort_nav{
+	float:right;
+	position:absolute;
+	top:5px;
+	left:50px;
+}
+
+#sever_center{
+	padding-top:28px;
+}
+
+footer{
+	background-image:url("../images/静.jpg");
+	width:712px;
+	height:264px;
+}
+

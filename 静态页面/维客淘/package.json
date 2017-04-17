@@ -1,0 +1,11 @@
+{
+  "name": "weiketao",
+  "version": "1.0.0",
+  "description": "static web page",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "zmw",
+  "license": "ISC"
+}
